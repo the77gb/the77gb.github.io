@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redes Sociais</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=YouTube+Condensed+Display&display=swap">
+    <style>
+        body {
+            font-family: 'YouTube Condensed Display', sans-serif;
+            text-align: center;
+            background-color: #000000;
+            color: #f0f0f0;
+            position: relative;
+            margin: 0;
+            padding-top: 150px; /* Adiciona espaço para a cruz */
+            overflow: hidden; /* Impede a barra de rolagem */
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 30px; /* Aumenta o espaço abaixo do título */
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        .social-media-links {
+            display: flex; /* Usar flexbox para alinhar os links */
+            justify-content: center; /* Centraliza os links */
+            flex-direction: column; /* Alinha os links na coluna */
+            align-items: center; /* Centraliza os itens horizontalmente */
+            margin-top: 20px; /* Espaço acima dos links */
+        }
+        .social-media-links a {
+            color: #f0f0f0;
+            text-decoration: none;
+            font-size: 2rem;
+            margin: 10px 0; /* Espaço entre os links */
+        }
+        .social-media-links a:hover {
+            color: #ddd;
+        }
+        footer {
+            margin-top: 50px; /* Adiciona um espaço acima do rodapé */
+            font-size: 0.9rem;
+        }
+
+        /* Animação CSS para a cruz */
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes glow {
+            0% {
+                filter: brightness(1);
+                box-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+            }
+            50% {
+                filter: brightness(3); /* Aumentei o brilho da cruz */
+                box-shadow: 0 0 30px rgba(255, 255, 255, 1);
+            }
+            100% {
+                filter: brightness(1);
+                box-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+            }
+        }
+
+        /* Estilo da cruz usando CSS */
+        .cross {
+            position: absolute;
+            top: 20px; /* Mantém a posição vertical */
+            left: 50%;
+            transform: translateX(-50%);
+            width: 15px; /* Diminuído a largura da parte vertical da cruz */
+            height: 150px; /* Mantém a altura da parte vertical da cruz */
+            background-color: white;
+            animation: float 4s ease-in-out infinite, glow 2s ease-in-out infinite;
+        }
+
+        .cross::before {
+            content: '';
+            position: absolute;
+            left: -40px;
+            top: 40px; /* Subi um pouco a barra horizontal */
+            width: 100px; /* Largura da parte horizontal da cruz */
+            height: 15px; /* Diminuído a altura da parte horizontal da cruz */
+            background-color: white;
+            animation: float 4s ease-in-out infinite, glow 2s ease-in-out infinite; /* Adicionando animação à barra horizontal */
+        }
+
+        .victory-message {
+            margin: 60px 0 20px; /* Aumentado o espaço acima da frase */
+            font-size: 1rem; /* Diminuí o tamanho da fonte da frase */
+            color: #f0f0f0; /* Cor da frase */
+            animation: float 4s ease-in-out infinite; /* Adiciona animação de movimento à frase */
+        }
+
+        /* Estilo para as gotas de chuva */
+        .raindrop {
+            position: absolute;
+            width: 2px; /* Largura da gota */
+            height: 10px; /* Altura da gota */
+            background-color: rgba(255, 255, 255, 0.8); /* Cor da gota */
+            animation: fall linear infinite;
+        }
+
+        /* Animação da queda das gotas */
+        @keyframes fall {
+            0% {
+                transform: translateY(-100vh); /* Começa fora da tela */
+            }
+            100% {
+                transform: translateY(100vh); /* Termina na parte inferior da tela */
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Cruz flutuante com brilho criada com CSS -->
+    <div class="cross"></div>
+
+    <!-- Frase acima do título -->
+    <p class="victory-message">Salmos 18:2</p>
+    
+    <h1>REDES SOCIAIS</h1>
+    
+    <div class="social-media-links">
+        <a href="https://www.instagram.com/7g_dias/profilecard/?igsh=OGVka2560TIxNWtp" target="_blank"><i class="fab fa-instagram"></i> INSTAGRAM</a>
+        <a href="https://www.tiktok.com/@07gdias" target="_blank"><i class="fab fa-tiktok"></i> TIKTOK</a>
+        <a href="https://open.spotify.com/user/tyqdwtu4pizf629zjs661jfoy" target="_blank"><i class="fab fa-spotify"></i> SPOTIFY</a>
+        <a href="https://steamcommunity.com/profiles/76561198394973989" target="_blank"><i class="fab fa-steam"></i> STEAM</a>
+    </div>
+    
+    <footer>
+        <p> &copy; the77 2024</p>
+    </footer>
+
+    <!-- Adicionando música com controles -->
+    <audio id="background-music" loop>
+        <source src="mu/k77.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        document.body.addEventListener('click', function() {
+            var audio = document.getElementById('background-music');
+            audio.volume = 0.3; // Define o volume para 30%
+            audio.play();
+        });
+
+        // Função para criar gotas de chuva
+        function createRain() {
+            const rainContainer = document.createElement('div');
+            rainContainer.className = 'raindrop';
+            rainContainer.style.left = Math.random() * 100 + 'vw'; // Posição horizontal aleatória
+            rainContainer.style.animationDuration = (Math.random() * 1 + 1) + 's'; // Duração aleatória da animação
+
+            document.body.appendChild(rainContainer);
+
+            // Remove a gota após a animação
+            rainContainer.addEventListener('animationend', () => {
+                rainContainer.remove();
+            });
+        }
+
+        // Cria gotas de chuva em intervalos
+        setInterval(createRain, 100); // Intervalo de 100ms
+    </script>
+</body>
+</html>

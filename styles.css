@@ -1,0 +1,20 @@
+.cross {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 100px;
+    background-color: white;
+    animation: float 4s ease-in-out infinite, glow 2s ease-in-out infinite;
+}
+
+.cross::before {
+    content: '';
+    position: absolute;
+    left: -40px;
+    top: 40px;
+    width: 100px;
+    height: 20px;
+    background-color: white;
+}
